@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Nicaragua: Que Inspira | Edición Despliegue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raíces que nos unen | Galería Inmersiva</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,43 +13,48 @@
             --dark-blue: #1A2B4C;
             --gold: #C5A059;
             --terracotta: #A0522D;
-            --white-trans: rgba(245, 245, 220, 0.95);
-            --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --white-trans: rgba(245, 245, 220, 0.9);
+            --transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Reset Universal */
+        /* Modern Reset */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--bg-cream);
+            background-image: radial-gradient(circle at center, #ffffff 0%, #F5F5DC 100%);
             color: var(--dark-blue);
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 3rem;
         }
 
-        /* Header Adaptable */
+        /* Navigation - Scrollable Tray */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
             background: var(--white-trans);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 1rem 0;
+            padding: 1.2rem 0;
         }
 
         .main-nav {
@@ -60,159 +65,276 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             color: var(--dark-blue);
             text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-style: italic;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
 
         .nav-links-wrapper {
             width: 100%;
             overflow-x: auto;
             display: flex;
+            justify-content: center;
             scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
-        .nav-links-wrapper::-webkit-scrollbar { display: none; }
+        .nav-links-wrapper::-webkit-scrollbar {
+            display: none;
+        }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
-            margin: 0 auto;
-            padding: 0 1rem;
+            gap: 2.5rem;
+            padding: 0.5rem 1rem;
+            white-space: nowrap;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark-blue);
-            font-size: 0.75rem;
+            font-weight: 400;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 0;
-            opacity: 0.6;
+            letter-spacing: 2px;
             transition: var(--transition);
+            position: relative;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: var(--transition);
+            transform: translateX(-50%);
         }
 
         .nav-links a.active {
-            opacity: 1;
             color: var(--gold);
             font-weight: 600;
-            border-bottom: 2px solid var(--gold);
         }
 
-        /* Sub-Navegación Táctica */
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Sub-navigation Layout */
         .sub-nav-wrapper {
             position: sticky;
-            top: 105px; /* Ajuste para móviles */
+            top: 110px;
             background: var(--bg-cream);
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             z-index: 900;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(26, 43, 76, 0.05);
         }
 
         .sub-nav {
             display: flex;
-            gap: 1rem;
+            justify-content: center;
+            gap: 2.5rem;
             overflow-x: auto;
             scrollbar-width: none;
-            padding: 0 0.5rem;
         }
 
-        .sub-nav::-webkit-scrollbar { display: none; }
+        .sub-nav::-webkit-scrollbar {
+            display: none;
+        }
 
         .sub-btn {
             background: none;
             border: none;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            padding: 0.6rem 1rem;
-            white-space: nowrap;
+            letter-spacing: 1.5px;
+            cursor: pointer;
             color: var(--dark-blue);
             opacity: 0.5;
-            border-radius: 20px;
-            transition: 0.3s;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            white-space: nowrap;
         }
 
         .sub-btn.active {
             opacity: 1;
-            background: var(--terracotta);
-            color: white;
+            color: var(--terracotta);
+            font-weight: 600;
+            border-bottom: 2px solid var(--terracotta);
         }
 
-        /* Secciones */
+        /* Sections & Content */
         .page-section {
             display: none;
-            min-height: 80vh;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .page-section.active {
             display: block;
-            animation: slideUp 0.5s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .hero {
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 8rem 0 4rem;
         }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-style: italic; color: var(--terracotta); max-width: 600px; margin: 0 auto; }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            padding: 2rem 0;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .content-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        .content-text h2 {
-            font-size: 2.2rem;
+        .hero h1 {
+            font-size: 5rem;
             margin-bottom: 1.5rem;
             color: var(--dark-blue);
         }
 
-        .content-text p { margin-bottom: 1.2rem; text-align: justify; }
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.4rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--terracotta);
+        }
 
-        .image-frame {
-            width: 100%;
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .content-text h2 {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 2rem;
             position: relative;
-            border-radius: 8px;
+        }
+
+        .content-text h2::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .content-text p {
+            margin-bottom: 1.8rem;
+            font-size: 1.1rem;
+            color: #333;
+            text-align: justify;
+        }
+
+        .content-text ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .content-text li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .content-text li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Gallery Frame */
+        .image-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: #e9e9e9;
+            border: 1px solid rgba(197, 160, 89, 0.3);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            background: #ddd;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
         }
 
         .image-frame img {
             width: 100%;
-            display: block;
-            aspect-ratio: 16/10;
+            height: 100%;
             object-fit: cover;
+            transition: transform 1.2s ease;
         }
 
-        .sub-content { display: none; }
-        .sub-content.active { display: block; }
+        .image-frame:hover img {
+            transform: scale(1.08);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--white-trans);
+            padding: 0.5rem 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--dark-blue);
+            border: 1px solid var(--gold);
+        }
+
+        .sub-content {
+            display: none;
+            animation: fadeIn 0.8s forwards;
+        }
+
+        .sub-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
         footer {
+            padding: 6rem 0;
             text-align: center;
-            padding: 4rem 0;
             border-top: 1px solid rgba(197, 160, 89, 0.2);
-            margin-top: 4rem;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            margin-top: 8rem;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-grid { gap: 3rem; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .nav-links-wrapper { justify-content: flex-start; }
+            .sub-nav { gap: 1rem; justify-content: flex-start; padding: 1rem; }
+            .hero h1 { font-size: 2.8rem; }
+            .sub-nav-wrapper { top: 100px; }
         }
     </style>
 </head>
@@ -220,28 +342,30 @@
 
     <header>
         <nav class="container main-nav">
-            <a href="javascript:void(0)" class="logo" onclick="navigateTo('inicio')">NICARAGUA</a>
+            <a href="#" class="logo" onclick="navigateTo('inicio')">Raíces que nos unen</a>
             <div class="nav-links-wrapper">
                 <ul class="nav-links">
-                    <li><a href="javascript:void(0)" id="link-inicio" class="active" onclick="navigateTo('inicio')">Inicio</a></li>
-                    <li><a href="javascript:void(0)" id="link-pacifico" onclick="navigateTo('pacifico')">Pacífico</a></li>
-                    <li><a href="javascript:void(0)" id="link-central" onclick="navigateTo('central')">Central</a></li>
-                    <li><a href="javascript:void(0)" id="link-caribe" onclick="navigateTo('caribe')">Caribe</a></li>
+                    <li><a href="#" id="link-inicio" class="active" onclick="navigateTo('inicio')">Inicio</a></li>
+                    <li><a href="#" id="link-pacifico" onclick="navigateTo('pacifico')">Pacífico</a></li>
+                    <li><a href="#" id="link-central" onclick="navigateTo('central')">Central</a></li>
+                    <li><a href="#" id="link-caribe" onclick="navigateTo('caribe')">Caribe</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main>
+        
         <!-- SECCIÓN INICIO -->
         <section id="sec-inicio" class="page-section active">
             <div class="container">
                 <div class="hero">
-                    <h1>Que Inspira</h1>
-                    <p>Patrimonio natural, histórico y cultural de la Tierra de Lagos y Volcanes.</p>
+                    <h1>Raíces que nos unen</h1>
+                    <p>Un recorrido por el patrimonio natural, histórico y cultural de la Tierra de Lagos y Volcanes.</p>
                 </div>
-                <div class="image-frame">
-                    <img src="https://images.unsplash.com/photo-1593451515206-ec853f01931f?auto=format&fit=crop&q=80&w=1200" alt="Nicaragua Paisaje">
+                <div class="image-frame" style="aspect-ratio: 21/9;">
+                    <img src="https://i.ibb.co/GQrRB9Tw/portada.jpg" onerror="this.src='https://images.unsplash.com/photo-1593451515206-ec853f01931f?auto=format&fit=crop&q=80&w=1600'" alt="[Imagen de Portada]">
+                    <div class="image-caption">PORTADA PRINCIPAL</div>
                 </div>
             </div>
         </section>
@@ -250,38 +374,79 @@
         <section id="sec-pacifico" class="page-section">
             <div class="sub-nav-wrapper">
                 <div class="container sub-nav">
-                    <button class="sub-btn active" onclick="switchSub(this, 'pacifico', 'geo')">Geografía</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'pacifico', 'hist')">Historia</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'pacifico', 'cult')">Cultura</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'pacifico', 'econ')">Economía</button>
+                    <button class="sub-btn active" onclick="switchSub('pacifico', 'geo')">Geografía Viva</button>
+                    <button class="sub-btn" onclick="switchSub('pacifico', 'hist')">Historia</button>
+                    <button class="sub-btn" onclick="switchSub('pacifico', 'cult')">Cultura</button>
+                    <button class="sub-btn" onclick="switchSub('pacifico', 'econ')">Economía</button>
+                    <button class="sub-btn" onclick="switchSub('pacifico', 'reto')">Retos</button>
                 </div>
             </div>
+
             <div class="container">
-                <div id="sub-pacifico-geo" class="sub-content active">
+                <article id="sub-pacifico-geo" class="sub-content active">
                     <div class="content-grid">
                         <div class="content-text">
                             <h2>Tierra de Fuego</h2>
-                            <p>El Pacífico nicaragüense es una zona de gran actividad volcánica y llanuras fértiles, hogar de ciudades históricas y lagos inmensos.</p>
+                            <p>El relieve del Pacífico es el resultado de potentes fuerzas internas: el tectonismo y el vulcanismo.</p>
                         </div>
-                        <div class="image-frame"><img src="https://images.unsplash.com/photo-1593451515206-ec853f01931f?auto=format&fit=crop&q=80&w=800" alt="Volcán"></div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/dJmhbvFk/pacific1.jpg" onerror="this.src='https://images.unsplash.com/photo-1593451515206-ec853f01931f?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Geografía del Pacífico]">
+                            <div class="image-caption">01 - GEOGRAFÍA PACÍFICO</div>
+                        </div>
                     </div>
-                </div>
-                <!-- Otros sub-contenidos se activan igual -->
-                <div id="sub-pacifico-hist" class="sub-content">
+                </article>
+
+                <article id="sub-pacifico-hist" class="sub-content">
                     <div class="content-grid">
-                        <div class="content-text"><h2>Legado Colonial</h2><p>León y Granada, fundadas en 1524, representan el corazón del mestizaje nicaragüense.</p></div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/sdLB9hsP/pacific2.jpg" onerror="this.src='https://images.unsplash.com/photo-1582260195543-57776f82787d?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Historia del Pacífico]">
+                            <div class="image-caption">02 - HISTORIA PACÍFICO</div>
+                        </div>
+                        <div class="content-text">
+                            <h2>El Eje Colonial</h2>
+                            <p>Esta región ha sido el centro político y social desde la llegada de los españoles.</p>
+                        </div>
                     </div>
-                </div>
-                <div id="sub-pacifico-cult" class="sub-content">
+                </article>
+
+                <article id="sub-pacifico-cult" class="sub-content">
                     <div class="content-grid">
-                        <div class="content-text"><h2>El Güegüense</h2><p>Obra maestra del teatro satírico y patrimonio de la humanidad.</p></div>
+                        <div class="content-text">
+                            <h2>Identidad Mestiza</h2>
+                            <p>La cultura del Pacífico es una vibrante mezcla de tradiciones indígenas y europeas.</p>
+                        </div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/G3FHFsZB/pacific3.jpg" onerror="this.src='https://images.unsplash.com/photo-1579308000571-001099e74f32?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Cultura del Pacífico]">
+                            <div class="image-caption">03 - CULTURA PACÍFICO</div>
+                        </div>
                     </div>
-                </div>
-                <div id="sub-pacifico-econ" class="sub-content">
+                </article>
+
+                <article id="sub-pacifico-econ" class="sub-content">
                     <div class="content-grid">
-                        <div class="content-text"><h2>Puerto Corinto</h2><p>El principal motor logístico y de exportación de Nicaragua.</p></div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/k2k6dnX9/pacific4.jpg" onerror="this.src='https://images.unsplash.com/photo-1528660493888-ab6f4761e036?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Economía del Pacífico]">
+                            <div class="image-caption">04 - ECONOMÍA PACÍFICO</div>
+                        </div>
+                        <div class="content-text">
+                            <h2>Motor Industrial</h2>
+                            <p>El Pacífico genera el 88.5% del valor agregado industrial del país.</p>
+                        </div>
                     </div>
-                </div>
+                </article>
+
+                <article id="sub-pacifico-reto" class="sub-content">
+                    <div class="content-grid">
+                        <div class="content-text">
+                            <h2>El Futuro del Pacífico</h2>
+                            <p>El reto principal es la gestión de recursos ante el cambio climático. Se requiere una modernización tecnológica en el campo.</p>
+                        </div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/GQmBksDf/pacific5.jpg" onerror="this.src='https://images.unsplash.com/photo-1517404212328-3300b3d660e0?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Retos del Pacífico]">
+                            <div class="image-caption">05 - RETOS PACÍFICO</div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -289,157 +454,72 @@
         <section id="sec-central" class="page-section">
             <div class="sub-nav-wrapper">
                 <div class="container sub-nav">
-                    <button class="sub-btn active" onclick="switchSub(this, 'central', 'geo')">Geografía</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'central', 'hist')">Historia</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'central', 'cult')">Cultura</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'central', 'econ')">Economía</button>
+                    <button class="sub-btn active" onclick="switchSub('central', 'geo')">Geografía Viva</button>
+                    <button class="sub-btn" onclick="switchSub('central', 'hist')">Historia</button>
+                    <button class="sub-btn" onclick="switchSub('central', 'cult')">Cultura</button>
+                    <button class="sub-btn" onclick="switchSub('central', 'econ')">Economía</button>
+                    <button class="sub-btn" onclick="switchSub('central', 'reto')">Retos</button>
                 </div>
             </div>
+
             <div class="container">
-                <div id="sub-central-geo" class="sub-content active">
+                <article id="sub-central-geo" class="sub-content active">
                     <div class="content-grid">
                         <div class="content-text">
-                            <h2>Montañas Nubosas</h2>
-                            <p>Bosques de neblisela y climas frescos caracterizan a Matagalpa, Jinotega y Estelí.</p>
+                            <h2>Alturas Nubosas</h2>
+                            <p>La Región Central es un mosaico de montañas, valles y mesetas.</p>
                         </div>
-                        <div class="image-frame"><img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800" alt="Montaña"></div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/vx2GzKNq/central1.jpg" onerror="this.src='https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Geografía Central]">
+                            <div class="image-caption">06 - GEOGRAFÍA CENTRAL</div>
+                        </div>
                     </div>
-                </div>
-                <div id="sub-central-hist" class="sub-content">
-                    <div class="content-grid">
-                        <div class="content-text"><h2>Pueblos Indígenas</h2><p>Historia de los indios Matagalpa y la resistencia en las segovias.</p></div>
-                    </div>
-                </div>
-                <div id="sub-central-cult" class="sub-content">
-                    <div class="content-grid">
-                        <div class="content-text"><h2>Polkas y Mazurcas</h2><p>El folklore musical del norte con fuerte herencia europea campesina.</p></div>
-                    </div>
-                </div>
-                <div id="sub-central-econ" class="sub-content">
-                    <div class="content-grid">
-                        <div class="content-text"><h2>Café de Altura</h2><p>El principal producto de exportación del triángulo norte.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </article>
 
-        <!-- SECCIÓN CARIBE -->
-        <section id="sec-caribe" class="page-section">
-            <div class="sub-nav-wrapper">
-                <div class="container sub-nav">
-                    <button class="sub-btn active" onclick="switchSub(this, 'caribe', 'geo')">Geografía</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'caribe', 'hist')">Historia</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'caribe', 'cult')">Cultura</button>
-                    <button class="sub-btn" onclick="switchSub(this, 'caribe', 'econ')">Economía</button>
-                </div>
-            </div>
-            <div class="container">
-                <div id="sub-caribe-geo" class="sub-content active">
+                <article id="sub-central-hist" class="sub-content">
+                    <div class="content-grid">
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/mrfZwvLr/central2.jpg" onerror="this.src='https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Historia Central]">
+                            <div class="image-caption">07 - HISTORIA CENTRAL</div>
+                        </div>
+                        <div class="content-text">
+                            <h2>Corazón de la Resistencia</h2>
+                            <p>Habitada originalmente por los indios Matagalpas.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="sub-central-cult" class="sub-content">
                     <div class="content-grid">
                         <div class="content-text">
-                            <h2>Selva y Mar</h2>
-                            <p>Casi la mitad de Nicaragua es selva tropical y costas de arena blanca frente al mar Caribe.</p>
+                            <h2>Polkas y Mazurcas</h2>
+                            <p>La cultura del norte es melancólica y alegre a la vez.</p>
                         </div>
-                        <div class="image-frame"><img src="https://images.unsplash.com/photo-1544735749-2eee52a4a7be?auto=format&fit=crop&q=80&w=800" alt="Selva"></div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/spP8MBpx/central3.jpg" onerror="this.src='https://images.unsplash.com/photo-1506477331477-33d6d8b3dc85?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Cultura Central]">
+                            <div class="image-caption">08 - CULTURA CENTRAL</div>
+                        </div>
                     </div>
-                </div>
-                <div id="sub-caribe-hist" class="sub-content">
+                </article>
+
+                <article id="sub-central-econ" class="sub-content">
                     <div class="content-grid">
-                        <div class="content-text"><h2>Régimen de Autonomía</h2><p>Reconocimiento de los derechos históricos de los pueblos indígenas y afrodescendientes.</p></div>
+                        <div class="image-frame">
+                            <img src="https://i.ibb.co/Lh1pw7jV/central4.jpg" onerror="this.src='https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=800'" alt="[Imagen de Economía Central]">
+                            <div class="image-caption">09 - ECONOMÍA CENTRAL</div>
+                        </div>
+                        <div class="content-text">
+                            <h2>Oro Marrón y Lácteos</h2>
+                            <p>Principal productora de café de exportación.</p>
+                        </div>
                     </div>
-                </div>
-                <div id="sub-caribe-cult" class="sub-content">
+                </article>
+
+                <article id="sub-central-reto" class="sub-content">
                     <div class="content-grid">
-                        <div class="content-text"><h2>Mayo Ya</h2><p>La fiesta de la fertilidad en Bluefields, llena de color y ritmo africano.</p></div>
-                    </div>
-                </div>
-                <div id="sub-caribe-econ" class="sub-content">
-                    <div class="content-grid">
-                        <div class="content-text"><h2>Pesca y Minería</h2><p>Recursos marinos y minería de oro en el Triángulo Minero.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Nicaragua: Que Inspira | Galería Digital</p>
-    </footer>
-
-    <script>
-        /**
-         * Navegación Principal
-         */
-        function navigateTo(targetId) {
-            // 1. Ocultar todas las secciones
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            // 2. Mostrar la sección destino
-            const targetSection = document.getElementById('sec-' + targetId);
-            if(targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            // 3. Actualizar links del menú
-            const links = document.querySelectorAll('.nav-links a');
-            links.forEach(l => l.classList.remove('active'));
-            
-            const activeLink = document.getElementById('link-' + targetId);
-            if(activeLink) {
-                activeLink.classList.add('active');
-            }
-
-            // 4. Resetear sub-navegación si no es inicio
-            if(targetId !== 'inicio') {
-                resetSubNavigation(targetId);
-            }
-
-            // Subir al inicio de la página
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        /**
-         * Resetear sub-navegación al entrar a una sección nueva
-         */
-        function resetSubNavigation(regionId) {
-            const section = document.getElementById('sec-' + regionId);
-            if(!section) return;
-
-            // Primer botón activo
-            const firstBtn = section.querySelector('.sub-btn');
-            const allBtns = section.querySelectorAll('.sub-btn');
-            allBtns.forEach(b => b.classList.remove('active'));
-            if(firstBtn) firstBtn.classList.add('active');
-
-            // Primer contenido activo
-            const allContent = section.querySelectorAll('.sub-content');
-            allContent.forEach(c => c.classList.remove('active'));
-            const firstContent = section.querySelector('.sub-content');
-            if(firstContent) firstContent.classList.add('active');
-        }
-
-        /**
-         * Navegación de Sub-Categorías
-         */
-        function switchSub(element, regionId, subId) {
-            const parent = document.getElementById('sec-' + regionId);
-            if(!parent) return;
-
-            // 1. Cambiar estado del botón
-            const buttons = parent.querySelectorAll('.sub-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(element) element.classList.add('active');
-
-            // 2. Cambiar visibilidad del contenido
-            const subs = parent.querySelectorAll('.sub-content');
-            subs.forEach(s => s.classList.remove('active'));
-
-            const target = document.getElementById('sub-' + regionId + '-' + subId);
-            if(target) {
-                target.classList.add('active');
-            }
-        }
-    </script>
-</body>
-</html>
+                        <div class="content-text">
+                            <h2>Preservación Ecológica</h2>
+                            <p>Desafíos de deforestación y frontera agrícola.</p>
+                        </div>
+                        <div class="image-frame">
+                            <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800" alt="[Imagen de Retos Cent
